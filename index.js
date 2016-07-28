@@ -21,11 +21,23 @@ const words = data.map((word) => {
     });
 });
 
-console.log(words.map((word) => {
+var numeric = words.map((word) => {
     return word.map((clock) => {
-        return (3600 * clock.hour + 60 * clock.min + clock.sec).toString(10);
+        return (3600 * clock.hour + 60 * clock.min + clock.sec);
     });
-}));
+});
+
+var newwords = [];
+for (let i = 0; i < numeric.length; i++) {
+    newwords[i] = [];
+    for (let j = 0; j < numeric[i].length; j++) {
+        newwords[i][j] = numeric[i][words[i].length - (1 + j)];
+    }
+}
+console.log(newwords.map((word) => {return word.map((num) => {return num.toString(16);});}));
+
+
+
 /*
 console.log(words.map((word) => {
     return word.map((clock) => {
@@ -34,3 +46,4 @@ console.log(words.map((word) => {
 }));
 
  37*1229*1178637163094140237*/
+
