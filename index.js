@@ -34,7 +34,26 @@ for (let i = 0; i < numeric.length; i++) {
         newwords[i][j] = numeric[i][words[i].length - (1 + j)];
     }
 }
-console.log(newwords.map((word) => {return word.map((num) => {return leftpad(num.toString(16),4,0);});}));
+
+console.log(words);
+
+console.log(newwords);
+
+//console.log(numeric.map((word) => {
+//  return word.reduce(function(a,b) { return a + b})/word.length;
+//}));
+
+console.log(newwords.map((word) => {
+  return word.map((num) => {
+    return leftpad(num.toString(16),4,0);
+  });
+}));
+
+console.log(newwords.map((word) => {
+  return word.map((num) => {
+    return num.toString(2).length;
+  });
+}));
 
 function leftpad(str, len, char) {
     while(str.length < len) {str = char + str;}
