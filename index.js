@@ -34,9 +34,12 @@ for (let i = 0; i < numeric.length; i++) {
         newwords[i][j] = numeric[i][words[i].length - (1 + j)];
     }
 }
-console.log(newwords.map((word) => {return word.map((num) => {return num.toString(16);});}));
+console.log(newwords.map((word) => {return word.map((num) => {return leftpad(num.toString(16),4,0);});}));
 
-
+function leftpad(str, len, char) {
+    while(str.length < len) {str = char + str;}
+    return str;
+}
 
 /*
 console.log(words.map((word) => {
