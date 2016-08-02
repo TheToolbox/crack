@@ -57,6 +57,7 @@ console.log(numeric.map((word) => {
   });
 }));
 
+console.log("Treat each clock as a single base 43200 digit. Below is the base 10 representation of each string of (little endian) numbers")
 console.log(numeric.map((word) => {
   number = 'factor (';
   for (let i = 0; i < word.length; i++) {
