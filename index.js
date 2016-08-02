@@ -27,32 +27,45 @@ var numeric = words.map((word) => {
     });
 });
 
-var newwords = [];
+var reversednumeric = [];
 for (let i = 0; i < numeric.length; i++) {
-    newwords[i] = [];
+    reversednumeric[i] = [];
     for (let j = 0; j < numeric[i].length; j++) {
-        newwords[i][j] = numeric[i][words[i].length - (1 + j)];
+        reversednumeric[i][j] = numeric[i][words[i].length - (1 + j)];
     }
 }
 
+console.log('words')
 console.log(words);
 
-console.log(newwords);
+console.log('reversed numeric')
+console.log(reversednumeric);
 
 //console.log(numeric.map((word) => {
 //  return word.reduce(function(a,b) { return a + b})/word.length;
 //}));
 
-console.log(newwords.map((word) => {
+console.log(reversednumeric.map((word) => {
   return word.map((num) => {
     return leftpad(num.toString(16),4,0);
   });
 }));
 
-console.log(newwords.map((word) => {
+console.log(numeric.map((word) => {
   return word.map((num) => {
-    return num.toString(2).length;
+    return num.toString(2);
   });
+}));
+
+console.log(numeric.map((word) => {
+  number = 'factor (';
+  for (let i = 0; i < word.length; i++) {
+    //console.log("number: " + number);
+    //console.log(number + " + 43200^" + i + " * " + word[i]);
+    number += 43200 + "^" + i.toString() + " * " + word[i].toString() + " + ";
+  }
+  //console.log("number: " + number);
+  return number.substring(0,number.length-3) + ")";
 }));
 
 function leftpad(str, len, char) {
